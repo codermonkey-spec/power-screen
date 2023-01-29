@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {useScalePage} from './hooks'
+import PowerView from './pages/power-view'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const screenOption = {
+  targetX:1920,
+  targetY:1080,
+  targetRatio: 16 / 9
 }
 
-export default App;
+export default function App() {
+  useScalePage(screenOption);
+
+  return <PowerView />
+}
+
