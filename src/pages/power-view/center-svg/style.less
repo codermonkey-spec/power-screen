@@ -1,0 +1,165 @@
+
+
+.center-svg {
+  :global {
+    /* 灯光特效 */
+    .cls-3:local,
+    .cls-4:local,
+
+    .cls-28:local,
+    .cls-29:local,
+
+    .cls-8:local,
+    .cls-9:local,
+
+    .cls-23:local,
+    .cls-24:local,
+
+    .cls-18:local,
+    .cls-19:local,
+
+    .cls-13:local,
+    .cls-14:local {
+      animation: lightEffect 3s linear infinite;
+    }
+
+    @keyframes lightEffect {
+      0% {
+        opacity: 0;
+      }
+    
+      50% {
+        opacity: 1;
+      }
+    
+      100% {
+        opacity: 0;
+      }
+    }
+  
+   
+
+    /* 烟花特效 */
+  /* 布局定位 */
+  .lingxA {
+    position: absolute;
+    top: 30%;
+    left: 47%;
+  }
+
+  .lingxB {
+    position: absolute;
+    top: 35%;
+    left: 58%;
+  }
+
+  .lingxC {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+  }
+
+ .lingxD {
+    position: absolute;
+    top: 28%;
+    left: 41%;
+  }
+
+  .lingxE {
+    position: absolute;
+    top: 28%;
+    left: 54%;
+  }
+
+  .lingxF {
+    position: absolute;
+    top: 40%;
+    left: 53%;
+  }
+
+
+  /**======城市烟花特效=======*/
+  .lingxA:local {
+    opacity: 0;
+    animation: lingxA 2s linear infinite;
+  }
+
+  .lingxB:local {
+    opacity: 0;
+    animation: lingxB 2.2s linear infinite;
+  }
+
+  .lingxC:local {
+    opacity: 0;
+    animation: lingxC 1.7s linear infinite;
+  }
+
+  .lingxD:local {
+    opacity: 0;
+    animation: lingxC 2.7s linear infinite;
+  }
+
+ .lingxE:local {
+    opacity: 0;
+    animation: lingxB 1.2s linear infinite;
+  }
+
+  .lingxF:local {
+    opacity: 0;
+    animation: lingxA 1.4s linear infinite;
+  }
+
+  /* 向上移动的烟花 */
+  @keyframes lingxA {
+    from {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(-160px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes lingxB {
+    from {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 1;
+    }
+
+    60%,
+    to {
+      transform: translateY(-120px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes lingxC {
+    from {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    30% {
+      opacity: 1;
+    }
+
+    50%,
+    to {
+      transform: translateY(-90px);
+      opacity: 0;
+    }
+  }
+
+   
+  }
+}

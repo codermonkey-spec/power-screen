@@ -76,13 +76,35 @@ const yAxis = [
   },
 ];
 
+const linearStyle = {
+  type: "linear",
+  x: 0,
+  y: 0,
+  x2: 0,
+  y2: 1,
+  colorStops: [
+    {
+      offset: 0,
+      color: "#20FF89",
+    },
+    {
+      offset: 1,
+      color: "rgba(255, 255, 255, 0)",
+    },
+  ],
+}
+
+const defaultSeriesItemStyle = {
+  type: "line",
+  smooth: true,
+  stack: "总量",
+  symbolSize: 5,
+  showSymbol: false,
+}
+
 const series = [
   {
-    type: "line",
-    smooth: true,
-    stack: "总量",
-    symbolSize: 5,
-    showSymbol: false,
+    ...defaultSeriesItemStyle,
     itemStyle: {
       color: "#20FF89",
       lineStyle: {
@@ -91,31 +113,11 @@ const series = [
       },
     },
     areaStyle: {
-      color: {
-        type: "linear",
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#20FF89",
-          },
-          {
-            offset: 1,
-            color: "rgba(255, 255, 255, 0)",
-          },
-        ],
-      },
-    },
+      color: linearStyle,
+    }
   },
   {
-    type: "line",
-    smooth: true,
-    stack: "总量",
-    symbolSize: 5,
-    showSymbol: false,
+    ...defaultSeriesItemStyle,
     itemStyle: {
       color: "#EA9502",
       lineStyle: {
@@ -124,23 +126,16 @@ const series = [
       },
     },
     areaStyle: {
-      color: {
-        type: "linear",
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [
+      color:{
+        ...linearStyle,
+        colorStops:[
           {
-            offset: 0,
+            ...linearStyle.colorStops[0],
             color: "#EA9502",
           },
-          {
-            offset: 1,
-            color: "rgba(255, 255, 255, 0)",
-          },
-        ],
-      },
+          linearStyle.colorStops[1]
+        ]
+      }
     },
   },
 ];

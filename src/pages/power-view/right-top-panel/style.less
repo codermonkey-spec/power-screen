@@ -1,0 +1,65 @@
+.right-top-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  :global {
+    .right-water-ball {
+      width: 269px;
+      height: 199px;
+      margin-top: 50px;
+      margin-left: 40px;
+    }
+
+    .legend {
+      flex: 1;
+      .dot {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+      }
+
+      .area1 {
+        background-color: #209393;
+      }
+
+      .area2 {
+        background-color: #1a54a5;
+      }
+
+      .area3 {
+        background-color: #85caf0;
+      }
+
+      .area4 {
+        background-color: #f5b64a;
+      }
+
+      .area5 {
+        background-color: #ee792e;
+      }
+
+      .name {
+        color: white;
+      }
+
+      .percentage {
+        color: #0cd2ea;
+      }
+    }
+
+    .leg-name {
+      margin-top: 23px;
+      margin-left: 40px;
+
+      span {
+        display: inline-block;
+        font-size: 20px;
+        margin-right: 11px;
+      }
+    }
+  }
+}

@@ -1,26 +1,24 @@
-import React,{useEffect, useState} from "react";
-import styles from "./style.less";
-import {
-  pieData,
-  processMonitoringData,
-  chargingStatisticsData,
-} from "./mockData";
+import React, { useEffect, useState } from "react";
+import { getPowerScreenData } from "../../services";
 
-import {getPowerScreenData} from '../../services'
+import styles from "./style.less";
 
 import PieCharts from "./pie-charts";
 import LineCharts from "./line-charts";
 import BarCharts from "./bar-charts";
-import Heart from './heart'
+import Heart from "./heart";
+import CenterSvg from "./center-svg";
+import RightTopPanel from "./right-top-panel";
+import BottomSvg from './bottom-svg'
 
 export default function Index() {
-  const [chartsData,setChartsData] = useState({})
+  const [chartsData, setChartsData] = useState({});
+  
   useEffect(() => {
-    getPowerScreenData().then(res => {
-      console.log('res',res)
-      setChartsData(res?.data)
-    })
-  },[])
+    getPowerScreenData().then((res) => {
+      setChartsData(res?.data);
+    });
+  }, []);
 
   return (
     <div className={styles["screen-bg"]}>
@@ -31,15 +29,24 @@ export default function Index() {
       <div className="left-bottom">
         <LineCharts chartsData={chartsData?.processMonitoring?.data} />
       </div>
-      <div className="right-top"></div>
+      <div className="right-top">
+        <RightTopPanel
+          panelItems={chartsData?.chargingTop4?.data}
+          percentage={chartsData?.chargingTop4?.totalPercentage}
+        />
+      </div>
       <div className="right-center">
         <BarCharts chartsData={chartsData?.chargingStatistics?.data} />
       </div>
       <div className="right-bottom">
         <Heart chartsData={chartsData?.exceptionMonitoring?.data} />
       </div>
-      <div className="center"></div>
-      <div className="bottom"></div>
+      <div className="center">
+        <CenterSvg />
+      </div>
+      <div className="bottom">
+        <BottomSvg panelItems={chartsData?.dataAnalysis?.data} />
+      </div>
     </div>
   );
 }
