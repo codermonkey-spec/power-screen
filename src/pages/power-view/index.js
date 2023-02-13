@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPowerScreenData } from "../../services";
-
+import {powerData} from './mockData'
 import styles from "./style.less";
 
 import PieCharts from "./pie-charts";
@@ -17,7 +17,9 @@ export default function Index() {
   useEffect(() => {
     getPowerScreenData().then((res) => {
       setChartsData(res?.data);
-    });
+    }).catch(() => {
+      setChartsData(powerData.data)
+    })
   }, []);
 
   return (
