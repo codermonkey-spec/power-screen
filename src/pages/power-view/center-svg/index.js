@@ -7,9 +7,14 @@ import DotsAnimate from "./DotsAnimate";
 import CenterBalls from "./CenterBalls";
 
 const childNames = ["DotsAnimate", "BallSvg"];
+const lingxImgNum = 6;
+const A_ASCII = 65;
+
+const lingxImgNames = new Array(lingxImgNum)
+  .fill(A_ASCII)
+  .map((item, index) => `lingx${String.fromCharCode(item + index)}`);
 
 export default function Index() {
-
   return (
     <div className={styles["center-svg"]}>
       <BaseSvg childNames={childNames}>
@@ -17,36 +22,14 @@ export default function Index() {
         <CenterBalls data={ballsData} />
       </BaseSvg>
 
-      <img
-        className="lingxA"
-        src={require("@/assets/images/ling/lingxA.png")}
-        alt=""
-      />
-      <img
-        className="lingxB"
-        src={require("@/assets/images/ling/lingxB.png")}
-        alt=""
-      />
-      <img
-        className="lingxC"
-        src={require("@/assets/images/ling/lingxC.png")}
-        alt=""
-      />
-      <img
-        className="lingxD"
-        src={require("@/assets/images/ling/lingxD.png")}
-        alt=""
-      />
-      <img
-        className="lingxE"
-        src={require("@/assets/images/ling/lingxE.png")}
-        alt=""
-      />
-      <img
-        className="lingxF"
-        src={require("@/assets/images/ling/lingxF.png")}
-        alt=""
-      />
+      {lingxImgNames.map((item) => (
+        <img
+          key={item}
+          className={item}
+          src={require(`@/assets/images/ling/${item}.png`)}
+          alt=""
+        />
+      ))}
     </div>
   );
 }
