@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { useEcharts } from "../../../hooks";
+import { useEcharts } from "@/hooks";
 import { getBarOption } from "./utils";
 
 export default function Index({ chartsData = [], width = "100%", height = "100%" }) {
